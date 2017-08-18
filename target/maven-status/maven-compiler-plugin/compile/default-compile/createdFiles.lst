@@ -1,0 +1,11 @@
+services/HomeService.class
+services/UpdateTaskService.class
+model/Todo.class
+database/Store.class
+controller/LoginController.class
+controller/UpdateTaskController.class
+model/User.class
+controller/HomeController.class
+controller/RegisterController.class
+services/LoginService.class
+services/RegisterService.class
