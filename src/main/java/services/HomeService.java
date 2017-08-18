@@ -22,11 +22,15 @@ public class HomeService {
     private static boolean checkLogin(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         String tokenId = null;
+        if(cookies == null) {
+            return false;
+        }
         for(Cookie cookie: cookies) {
             if("tokenId".equals(cookie.getName())) {
                 tokenId = cookie.getValue();
             }
         }
+        System.out.println("token id is " + tokenId);
         if(tokenId == null) {
             return false;
         } else {
@@ -82,7 +86,7 @@ public class HomeService {
                                          HttpServletResponse response)
             throws ServletException, IOException {
         if(checkLogin(request)) {
-
+            System.out.print("User is logged in\n");
             response.setHeader("Content-Type", "application/json");
 
             String date = request.getParameter("date");
@@ -122,6 +126,7 @@ public class HomeService {
             writer.print(todoListObject);
             writer.flush();
         } else {
+            System.out.println(request.getContextPath());
             response.sendRedirect("/test");
         }
     }

@@ -3,6 +3,7 @@ package controller;
 import database.Store;
 import model.Todo;
 import model.User;
+import services.UpdateTaskService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,6 @@ public class UpdateTaskController extends HttpServlet{
     protected void doPost(HttpServletRequest request,
                          HttpServletResponse response)
             throws ServletException, IOException {
-
-
+        UpdateTaskService.serviceMethod(request, response);
     }
 }
